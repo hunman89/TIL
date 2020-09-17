@@ -48,21 +48,30 @@ Initialized empty Git repository in C:/Users/hunma/test2/.git/
 > 커밋을 위한 파일 목록 (staging area)
 
 ```bash
-$ git add .			#현재 디렉토리의 모든 파일 및 폴더
-$ git add a.txt		#특정 파일
-$ git add md-images/ #특정 폴더
+$ git add .          # 현재 디렉토리의 모든 파일 및 폴더
+$ git add a.txt      # 특정 파일
+$ git add md-images/ # 특정 폴더
 $ git status
-# masrter 브랜치에 있다.
+# master 브랜치에 있다.
 On branch master
 
 No commits yet
 # 커밋이 될 변경사항들(changes)
 # Staging area 단계
-Change to be commited:
-	# unstage를 하기 위해서.... 명령어
-	# working directory 단계
-	(use git)
+Changes to be committed:
+  # unstage를 하기 위해서.... 명령어
+  # working directory 단계
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.txt
 
+# 트래킹 X 파일들
+# git으로 아직 관리를 X 
+# working directory 단계
+Untracked files:
+   # 커밋이 될 것에 추가하려면....
+   # staging area로 보내려면, add 명령어를 입력!
+  (use "git add <file>..." to include in what will be committed)
+        b.txt
 ```
 
 ### 2.`commit`
@@ -71,6 +80,11 @@ Change to be commited:
 
 ```bash
 $ git commit -m '커밋메시지'
+
+[master (root-commit) ad5f08a] First commit
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+ create mode 100644 b.txt
 ```
 
 * 커밋 메시지는 현재 버전을 알 수 있도록 명확하게 작성한다.
@@ -78,8 +92,18 @@ $ git commit -m '커밋메시지'
 
 	```bash
 	$ git log
+	
+	commit ad5f08abdf1e20b171b6abda728e521c8b89c7b8 (HEAD -> master)
+	Author: edutak <edutak.ssafy@gmail.com>
+	Date:   Thu Sep 17 13:25:15 2020 +0900
+	
+	    First commit
+	    
 	$ git log -1	#최근 한개의 버전
 	$ git log --oneline #한줄로 간단하게 표현
+	
+	ad5f08a (HEAD -> master) First commit
+	
 	$ git log -1 --oneline 
 	```
 
