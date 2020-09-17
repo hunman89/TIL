@@ -22,6 +22,11 @@
 
 * 배운 내용을 마크다운으로 작성해서 정리하자.
 * TIL 폴더에 하나씩 쌓아보자
+  * ex) 알고리즘 문제풀이 정리
+  * 자바 단계적 커밋
+  * 기존 프로젝트 업로드 (rm rf .git/)
+    * [gitignore.io](https://www.toptal.com/developers/gitignore)를 통해 필수적이지 않은 파일의 업로드를 막는다.
+    * [내용](gitignore.md)
 
 
 
