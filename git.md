@@ -101,6 +101,14 @@ $ git status
 $ git remote add origin {URL}
 ```
 
+* 원격 저장소를 삭제(remove)하기 위해서는 아래의 명령어를 사용한다. 
+
+  ```bash
+  $ git remote rm origin
+  ```
+
+  
+
 ### 2. 원격 저장소 확인하기
 
 ```bash
