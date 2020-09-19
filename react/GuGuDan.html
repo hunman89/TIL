@@ -16,13 +16,12 @@
 						second: Math.ceil(Math.random()*9),
 						value: '',
 						result: '',
-				};
-				
+				};				
 
-				onSubmit = (e) => {
+				onSubmit = (e) => { // submit 시 실행
 					e.preventDefault();
 						if (parseInt(this.state.value) === this.state.first*this.state.second){
-							this.setState((prevState) => {
+							this.setState((prevState) => { //예전 상태값을 다음에 활용하기위해 함수 활용
 								return {
 									result: '정답: '+ prevState.value,
 									first: Math.ceil(Math.random()* 9),
@@ -47,19 +46,21 @@
 
 				input;
 
-				render() { //최대한 짧게 setstate가 변경될때마다 render함수가 계속 실행된다.
-					return (
+				onRefInput = (c) => {this.input = c;}
+
+				render() { 		//최대한 짧게 setstate가 변경될때마다 render함수가 계속 실행된다.
+					return (   	// 변할 것들 위치에 state 넣기
 						<React.Fragment>
-							<div>
-								{this.state.first}곱하기{this.state.second}는?
+							<div>   
+								{this.state.first}곱하기{this.state.second}는? 
 							</div>
 							<form onSubmit = {this.onSubmit}>
-								<input ref={(c) => {this.input = c;}} type="number" value={this.state.value} onChange = {this.onChange} />
+								<input ref={this.onRefInput} type="number" value={this.state.value} onChange = {this.onChange} />
 								<button>입력</button>
 							</form>
 							<div>{this.state.result}</div>
 						</React.Fragment>
-					);
+					); // 의미없는 div를 React.Fragmment로 바꿔준다. 
 				}
 			}
 			
