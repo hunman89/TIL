@@ -16,11 +16,7 @@
 				const [value, setValue] = React.useState('');
 				const [result, setResult] = React.useState('');
 				const inputRef = React.useRef(null);
-				
-				const onChangeInput = (e) => {
-					serValue(e.target.value)
-				};
-
+								
 				const onSubmitForm = (e) => {
 					e.preventDefault();
 						if (parseInt(value) === first * second){
@@ -35,6 +31,11 @@
 							inputRef.current.focus();
 						}
 				};
+				
+				const onChangeInput = (e) => {
+					setValue(e.target.value)
+				};
+
 
 				return (   	// hooks는 전체 함수가 재 실행되기 때문에 좀 더 느릴 수 있다.
 					<React.Fragment>
@@ -42,7 +43,7 @@
 							{first}곱하기{second}는? 
 						</div>
 						<form onSubmit = {onSubmitForm}>
-							<input ref={inputRef} type="number" value={value} onChange = {onChangeInput} />
+							<input ref={inputRef} value={value} onChange = {onChangeInput} />
 							<button>입력</button>
 						</form>
 						<div id="result">{result}</div>
@@ -52,7 +53,7 @@
 			
 		</script>
 		<script type="text/babel">
-			ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+			ReactDOM.render(<Gugudan />, document.querySelector('#root'));
 		</script>
 	</body>
 
