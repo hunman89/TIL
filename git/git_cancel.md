@@ -142,6 +142,7 @@
            deleted:    omit.txt
    
    no changes added to commit (use "git add" and/or "git commit -a")
+   ```
 ```
    
    ```bash
@@ -150,7 +151,7 @@
    
    On branch master
    nothing to commit, working tree clean
-   ```
+```
 
 # 이력 되돌리기 (reset vs revert)
 
