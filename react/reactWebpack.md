@@ -64,10 +64,9 @@ vsCode
     
     ```jsx
     const React = require('react');
-const React-dom = require('react-dom');
+	const ReactDom = require('react-dom');
     ```
     
-
 * index.html을 생성해 코딩한다.
 
   ```html
@@ -177,5 +176,4 @@ npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader
   },
   ```
 
-  * 강사님과는 달리 설치하지 않아도 실행이 잘 됬었다.
-  * 
+  
