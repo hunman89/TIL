@@ -123,5 +123,5 @@
 
 * 상황에 대한 이해가 필요하다.
 
-  [다음](branch.md)
+  [다음](branchConflict.md)
 
