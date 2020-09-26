@@ -7,7 +7,7 @@
   * Java 프로그램이 접속 할 수 있는 Deamon을 실행
 
   ```
-  [root@mainserver ~]#hive --service hiveserver2
+  [root@mainserver ~]# hive --service hiveserver2
   ```
 
 * 필요한 라이브러리
