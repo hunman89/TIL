@@ -62,7 +62,7 @@
     ```
     
     ```
-    MariaDB [(none)]> CREATE DATABASE hive_db CHARACTER SET utf8;	// hive_db 생성
+    MariaDB [(none)]> CREATE DATABASE hive_db;	// hive_db 생성
     ```
 
 
@@ -81,7 +81,7 @@
   [root@mainserver 다운로드]# cp -r hive /usr/local
   ```
 
-* etc/profile 세팅
+* /etc/profile 세팅
 
   ```
   52 JAVA_HOME=/usr/local/jdk1.8.0
