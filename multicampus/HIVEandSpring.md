@@ -40,19 +40,18 @@
     * java Resources/src/ 에 MainController 생성
 
       ```java
-    package hive;
-      
-    import org.springframework.stereotype.Controller;
+      package hive;   
+      import org.springframework.stereotype.Controller;
       import org.springframework.web.bind.annotation.RequestMapping;
-      import org.springframework.web.servlet.ModelAndView;
+    import org.springframework.web.servlet.ModelAndView;
       
       @Controller
-      public class MainController {
+    public class MainController {
       
-      	@RequestMapping("/main.mc")
-    	public ModelAndView main() {
-      		ModelAndView mv = new ModelAndView();
-    		mv.setViewName("main");
+    		@RequestMapping("/main.mc")
+      public ModelAndView main() {
+    			ModelAndView mv = new ModelAndView();
+      	mv.setViewName("main");
       		return mv;
       	}
       	@RequestMapping("/chart1.mc")
@@ -62,8 +61,10 @@
       		mv.setViewName("main");
       		return mv;
       	}
-      } 
+      }   
       ```
+  
+     
   
   * web/
   

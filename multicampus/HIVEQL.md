@@ -32,7 +32,7 @@
 * 예제 2
 
   * ```
-    hive>  TABLE airline_delay(
+    hive>  CREATE TABLE airline_delay(
     Year INT,
     MONTH INT,
     DayofMonth INT,
