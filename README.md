@@ -60,14 +60,14 @@
 
 #### Git 
 
-* [git 사전 준비](https://github.com/hunman89/TIL/blob/master/multicampus/git/git.md)
-* [마크다운 문법이란?](https://github.com/hunman89/TIL/blob/master/multicampus/git/markdown.md)
-* [git 상황 체크와 branch](https://github.com/hunman89/TIL/blob/master/multicampus/git/gitStatus,remote,branch.md)
-* [충돌상황 예시와 해결법](https://github.com/hunman89/TIL/blob/master/multicampus/git/branchConflict.md)
-* [Git 취소와 되돌리기](https://github.com/hunman89/TIL/blob/master/multicampus/git/gitCancel.md)
-* [커밋하지말고 임시 저장 하기](https://github.com/hunman89/TIL/blob/master/multicampus/git/stash.md)
-* [추적하지 않을 파일](https://github.com/hunman89/TIL/blob/master/multicampus/git/gitIgnore.md)
-* [git에대한 FAQ](https://github.com/hunman89/TIL/blob/master/multicampus/git/FAQ.md)
+* [git 사전 준비](https://github.com/hunman89/TIL/blob/master/git/git.md)
+* [마크다운 문법이란?](https://github.com/hunman89/TIL/blob/master/git/markdown.md)
+* [git 상황 체크와 branch](https://github.com/hunman89/TIL/blob/master/git/gitStatus,remote,branch.md)
+* [충돌상황 예시와 해결법](https://github.com/hunman89/TIL/blob/master/git/branchConflict.md)
+* [Git 취소와 되돌리기](https://github.com/hunman89/TIL/blob/master/git/gitCancel.md)
+* [커밋하지말고 임시 저장 하기](https://github.com/hunman89/TIL/blob/master/git/stash.md)
+* [추적하지 않을 파일](https://github.com/hunman89/TIL/blob/master/git/gitIgnore.md)
+* [git에대한 FAQ](https://github.com/hunman89/TIL/blob/master/git/FAQ.md)
 
 
 
