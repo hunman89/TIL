@@ -12,17 +12,17 @@
 
 * 필요한 라이브러리
 
-	1. /usr/local/hive/lib에 있는 몇가지 jar
-		1. commons-logging-X.jar
-      	2. hive-exec-X.jar
-		3. hive-jdbc-X.jar
-     	4. hive-jdbc-X-standalone.jar
-		5. hive-metastore-X.jar
-	    6. hive-service-X.jar
-		7. libfb303-X.jar
-     	8. log4j-X.jar
-	2. /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar
-	
+  1. /usr/local/hive/lib에 있는 몇가지 jar
+    1. commons-logging-X.jar
+     	2. hive-exec-X.jar
+    3. hive-jdbc-X.jar
+    4. hive-jdbc-X-standalone.jar
+    5. hive-metastore-X.jar
+     6. hive-service-X.jar
+    7. libfb303-X.jar
+    8. log4j-X.jar
+  2. /usr/local/hadoop-1.2.1/hadoop-core-1.2.1.jar
+
 * 이클립스
 
   * HiveTest.java 파일 생성

@@ -123,5 +123,5 @@
 
 * 상황에 대한 이해가 필요하다.
 
-  [다음](branchConflict.md)
+  [다음](https://github.com/hunman89/TIL/blob/master/multicampus/git/branchConflict)
 
