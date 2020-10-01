@@ -13,11 +13,19 @@
 
 ## 분류
 
+#### 바닐라 JS
+
+* [바닐라JS 소개](https://github.com/hunman89/TIL/blob/master/VanillaJS/VanillaJS.md)
+* [자바스크립트의 변수](https://github.com/hunman89/TIL/blob/master/VanillaJS/Variable.md)
+* [자바스크립트의 함수](https://github.com/hunman89/TIL/blob/master/VanillaJS/Function.md)
+* [DOM 이란?](https://github.com/hunman89/TIL/blob/master/VanillaJS/DocumentObjectModel.md)
+* [이벤트 처리](https://github.com/hunman89/TIL/blob/master/VanillaJS/Events.md)
+
+> 노마드 코더 [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners/lobby)
+
 
 
 #### React  
-
-> 인프런 [웹게임을 만들며 배우는 React](https://www.inflearn.com/course/web-game-React/)
 
 * [React 소개](https://github.com/hunman89/TIL/blob/master/react/React.md)
 * [간단한 구성 요소들](https://github.com/hunman89/TIL/blob/master/react/reactFragment,ref,render.md)
@@ -27,6 +35,8 @@
 * [Babel/preset-env 세팅](https://github.com/hunman89/TIL/blob/master/react/babelpresetSetting.md)
 * [webpack plugins 세팅](https://github.com/hunman89/TIL/blob/master/react/webpackPlugins.md)
 * [react hot loader 세팅](https://github.com/hunman89/TIL/blob/master/react/reactHotLoader.md)
+
+> 인프런 [웹게임을 만들며 배우는 React](https://www.inflearn.com/course/web-game-React/)
 
 
 
@@ -41,6 +51,8 @@
 * [리눅스(, VMware) 에 하드디스크 추가하기](https://github.com/hunman89/TIL/blob/master/multicampus/linux/linuxHDAdd.md)
 * [RAID](https://github.com/hunman89/TIL/blob/master/multicampus/linux/RAID.md)
 * [LVM](https://github.com/hunman89/TIL/blob/master/multicampus/linux/LVM.md)
+
+
 
 #### 하둡 / 하이브
 
@@ -57,6 +69,8 @@
 * [HIVE Java와 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/HIVEandJava.md)
 * [HIVE Spring과 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/HIVEandSpring.md)
 * [HIVE 분석용 로그 생성하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/Log.md)
+
+
 
 #### Git 
 
