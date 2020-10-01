@@ -19,7 +19,7 @@
 
 > 인프런 [웹게임을 만들며 배우는 React](https://www.inflearn.com/course/web-game-React/)
 
-* [React 소개](https://github.com/hunman89/TIL/blob/master/react/react.md)
+* [React 소개](https://github.com/hunman89/TIL/blob/master/react/React.md)
 * [간단한 구성 요소들](https://github.com/hunman89/TIL/blob/master/react/reactFragment,ref,render.md)
 
 * [Hooks 예시](https://github.com/hunman89/TIL/blob/master/react/reactHooks.md)
