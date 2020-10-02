@@ -20,6 +20,7 @@
 * [자바스크립트의 함수](https://github.com/hunman89/TIL/blob/master/VanillaJS/Function.md)
 * [DOM 이란?](https://github.com/hunman89/TIL/blob/master/VanillaJS/DocumentObjectModel.md)
 * [이벤트 처리](https://github.com/hunman89/TIL/blob/master/VanillaJS/Events.md)
+* [시간, 로컬저장소, API등 구현하기](https://github.com/hunman89/TIL/blob/master/VanillaJS/MakeApp.md) 
 
 > 노마드 코더 [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners/lobby)
 
