@@ -73,6 +73,17 @@
 
 
 
+#### R
+
+* [R 세팅과 데이터분석이란?](https://github.com/hunman89/TIL/blob/master/multicampus/R/R.md)
+* [R의 다양한 변수들](https://github.com/hunman89/TIL/blob/master/multicampus/R/RData.md)
+* [R의 내장함수](https://github.com/hunman89/TIL/blob/master/multicampus/R/RFunction.md)
+* [데이터 분석 세팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/DataSetting.md)
+
+
+
+
+
 #### Git 
 
 * [git 사전 준비](https://github.com/hunman89/TIL/blob/master/git/git.md)
