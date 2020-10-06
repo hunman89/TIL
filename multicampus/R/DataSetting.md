@@ -2,6 +2,8 @@
 
 #### 엑셀파일 불러오기
 
+* 라이브러리 필요
+
 * readxl 패키지 설치
 
   ```r
@@ -84,5 +86,48 @@ str(ex1)
    $ age : int  10 20
   ```
 
-  
+
+
+
+#### csv 파일 입출력
+
+```R
+> sh <- read.csv("shop.txt",
++                header = F,
++                stringsAsFactors=F,
++                fileEncoding = "UTF-8")			# 입력
+> colnames(sh) <- c("ID","NAME","AGE","TEMP","PRICE","QT")		# 컬럼이름
+> sh
+    ID   NAME AGE TEMP PRICE QT
+1 id01 이말숙  23   15 10000  1
+2 id02 김말숙  28   NA 20000  2
+3 id03 홍말숙  30   15 30000  3
+> tt <- sh$PRICE * sh$QT							# 데이터 가공
+> tt
+[1] 10000 40000 90000
+> sh$TOTAL <- tt									# TOTAL 추가
+> sh
+    ID   NAME AGE TEMP PRICE QT TOTAL
+1 id01 이말숙  23   15 10000  1 10000
+2 id02 김말숙  28   NA 20000  2 40000
+3 id03 홍말숙  30   15 30000  3 90000
+> write.csv(										# 출력 (csv 파일로)
++   sh,
++   file="shoptotal.csv",
++   row.names = T   
++ )
+```
+
+
+
+#### 객체의 파일 입출력
+
+```R
+> save(sh,file = "shoptotal.rda")			# sh 객체를 파일로 보관
+> sht <- load("shoptatal.rda")				# 다시 불러오기
+```
+
+
+
+
 

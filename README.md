@@ -79,8 +79,9 @@
 * [R의 다양한 변수들](https://github.com/hunman89/TIL/blob/master/multicampus/R/RData.md)
 * [R의 내장함수](https://github.com/hunman89/TIL/blob/master/multicampus/R/RFunction.md)
 * [데이터 분석 세팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/DataSetting.md)
+* [데이터 가공하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/DataHandling.md)
 
-
+* [데이터 특성 파악을 위한 기초 통계 분석 함수](https://github.com/hunman89/TIL/blob/master/multicampus/R/StatisticsFunction.md)
 
 
 
