@@ -13,6 +13,12 @@
 
 ## 분류
 
+#### 자바스크립트
+
+* [웹과 자바스크립트](https://github.com/hunman89/TIL/blob/master/JavaScript/JavaScript.md)
+
+> edwith [부스트코스] [자바스크립트의 시작](https://www.edwith.org/boostcourse-web-106/joinLectures/52258)
+
 #### 바닐라 JS
 
 * [바닐라JS 소개](https://github.com/hunman89/TIL/blob/master/VanillaJS/VanillaJS.md)
