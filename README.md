@@ -86,10 +86,11 @@
 * [R의 내장함수](https://github.com/hunman89/TIL/blob/master/multicampus/R/RFunction.md)
 * [데이터 분석 세팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/DataSetting.md)
 * [데이터 가공하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/DataHandling.md)
-
 * [데이터 특성 파악을 위한 기초 통계 분석 함수](https://github.com/hunman89/TIL/blob/master/multicampus/R/StatisticsFunction.md)
-
-
+* [패키지란?](https://github.com/hunman89/TIL/blob/master/multicampus/R/RPackage.md)
+  * [Reshape2](https://github.com/hunman89/TIL/blob/master/multicampus/R/Reshape2.md)
+  * [Wordcloud](https://github.com/hunman89/TIL/blob/master/multicampus/R/Wordcloud.md)
+  * [dplyr](https://github.com/hunman89/TIL/blob/master/multicampus/R/dplyr.md)
 
 #### Git 
 
