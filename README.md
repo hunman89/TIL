@@ -91,6 +91,10 @@
   * [Reshape2](https://github.com/hunman89/TIL/blob/master/multicampus/R/Reshape2.md)
   * [Wordcloud](https://github.com/hunman89/TIL/blob/master/multicampus/R/Wordcloud.md)
   * [dplyr](https://github.com/hunman89/TIL/blob/master/multicampus/R/dplyr.md)
+  * [시각화: ggplot2](https://github.com/hunman89/TIL/blob/master/multicampus/R/ggplot2.md)
+  * [ggmap](https://github.com/hunman89/TIL/blob/master/multicampus/R/googleVisandggmap.md)
+* [R 프로그래밍](https://github.com/hunman89/TIL/blob/master/multicampus/R/RProgramming.md)
+* [R과 자바 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/RJava.md)
 
 #### Git 
 
