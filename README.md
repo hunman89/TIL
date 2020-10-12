@@ -13,6 +13,8 @@
 
 ## 분류
 
+
+
 #### 자바스크립트
 
 * [웹과 자바스크립트](https://github.com/hunman89/TIL/blob/master/JavaScript/JavaScript.md)
@@ -69,6 +71,8 @@
 * [RAID](https://github.com/hunman89/TIL/blob/master/multicampus/linux/RAID.md)
 * [LVM](https://github.com/hunman89/TIL/blob/master/multicampus/linux/LVM.md)
 
+> '이것이 리눅스다', 우재남, 한빛미디어
+
 
 
 #### 하둡 / 하이브
@@ -86,6 +90,8 @@
 * [HIVE Java와 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/HIVEandJava.md)
 * [HIVE Spring과 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/HIVEandSpring.md)
 * [HIVE 분석용 로그 생성하기](https://github.com/hunman89/TIL/blob/master/multicampus/hadoop,HIVE/Log.md)
+
+> '시작하세요 하둡 프로그래밍', 정재화, 위키북스
 
 
 
@@ -106,6 +112,8 @@
 * [R 프로그래밍](https://github.com/hunman89/TIL/blob/master/multicampus/R/RProgramming.md)
 * [R과 자바 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/R/RJava.md)
 
+> '처음시작하는 R데이터 분석', 강진희, 엄동란, 한빛미디어
+
 
 
 #### 안드로이드
@@ -113,6 +121,10 @@
 * [안드로이드와 안드로이드 스튜디오 세팅](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Setting.md)
 * [안드로이드 스튜디오로 앱 만들기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Making.md)
   * [뷰 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/View.md)
+
+
+
+> 'Do it 안드로이드 웹 프로그래밍', 정재곤, 이지스퍼블리싱 
 
 
 
@@ -128,4 +140,12 @@
 * [git에대한 FAQ](https://github.com/hunman89/TIL/blob/master/git/FAQ.md)
 
 
+
+#### 알고리즘
+
+* [알고리즘이란?](https://github.com/hunman89/TIL/blob/master/Algorithms/Algorithms.md)
+* [알고리즘의 효율성](https://github.com/hunman89/TIL/blob/master/Algorithms/Efficiency.md)
+* [알고리즘 분석과 차수](https://github.com/hunman89/TIL/blob/master/Algorithms/Order.md)
+
+> 인프런 [파이썬으로 배우는 알고리즘 기초](https://www.inflearn.com/course/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88/dashboard)
 
