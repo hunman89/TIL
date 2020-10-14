@@ -285,3 +285,13 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+* 로딩 바
+
+  ```java
+  ProgressDialog progressDialog = null;
+  progressDialog = new ProgressDialog(MainActivity.this); progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+  progressDialog.setTitle("로그인중 ...");  // text
+  progressDialog.show();
+  ```
+
+  
