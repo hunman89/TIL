@@ -139,3 +139,181 @@ def kruskal (n, E):
 
 
 
+
+
+#### 최단경로와 다익스트라 알고리즘
+
+> 단일 정점에서 모든 다른 정점으로의 최단 경로 구하기
+>
+> 프림 알고리즘과 유사
+
+* W[i]\[j]: 그래프 𝐺의 인접행렬
+
+* length[i]: 𝑌에 속한 정점들만 중간에 거치도록 하여 𝑣1에서 𝑣𝑖로 가는 현재 최단 경로의 길이
+* touch[i]: 𝑣1에서 𝑣𝑖로 가는 현재 최단경로 상의 𝑣𝑖와 연결된 𝑌에 속한 정점 𝑣의 인덱스
+
+```python
+def dijkstra (W):
+	n = len(W) - 1
+	F = []
+	touch = [-1] * (n + 1)
+	length = [-1] * (n + 1)
+	for i in range(2, n + 1):
+		touch[i] = 1
+		length[i] = W[1][i]
+	for _ in range(n - 1):
+		minValue = INF
+		for i in range(2, n + 1):
+			if (0 <= length[i] and length[i] < minValue):
+				minValue = length[i]
+				vnear = i
+		edge = (touch[vnear], vnear, W[touch[vnear]][vnear])
+		F.append(edge)
+		for i in range(2, n + 1):
+			if (length[i] > length[vnear] + W[vnear][i]):
+				length[i] = length[vnear] + W[vnear][i]
+				touch[i] = vnear
+		length[vnear] = -1
+	return F        
+        
+```
+
+* 결과 확인
+
+  ```python
+  def length (F):
+  	total = 0
+  	for e in F:
+  		total += e[2]
+  	return total
+  def print_tl (F, touch, length):
+  	print('F =', end ='')
+  	print(F)
+  	print(' touch: ', end ='')
+  	print(touch)
+  	print(' length: ', end ='')
+  	print(length)
+  ```
+
+
+
+
+
+#### 마감시간있는 스케줄 짜기
+
+> 보상을 최대화.
+
+* 보상에 따라 내림차순으로 작업 정렬
+* 순서대로 하나씩 가능한 스케줄에 포함시킨다.
+* 적절함? : 순서내의 모든 작업이 스케줄 내에 실행될때.
+  * 집합내의 원소들로 적절한 순서를 만들 수 있을때  적절한 집합 이라고 한다.(feasible set)
+* 적절한 집합을 확인?
+  * 원소를 스케쥴(deadline)순서대로 정렬했을때, 적절한 집합이면 그 집합은 적절한 집합이다.
+
+```python
+def schedule (deadline):
+	n = len(deadline) - 1
+	J = [1]
+	for i in range(2, n + 1):
+		K = insert(J, i, deadline)
+		if (feasible(K, deadline)):
+			J = K[:]
+	return J
+
+def feasible (K, deadline):
+	for i in range(1, len(K) + 1):
+		if (i > deadline[K[i - 1]]):
+			return False
+	return True
+def insert(J, i, deadline):
+	K = J[:]
+	for j in range(len(J), 0, -1):
+		if (deadline[i] >= deadline[K[j-1]]):
+			j += 1
+			break
+	K.insert(j - 1, i)
+	return K
+```
+
+
+
+
+
+#### 허프만코드
+
+* 이진코드(binary code)
+  * 데이터파일을 이진코드로 인코딩하여 저장
+    * 길이가 고정된 이진코드
+    * 길이가 변하는 이진코드 : 자주 나오는 문자의 코드 길이를 줄이자.
+
+
+
+* 최적 이진코드 문제  : 문자들을 이진코드로 표현할 때 필요한 비트의 개수가 최소가 되는 이진코드를 찾아라.
+
+
+
+* 전치코드 : 길이가 변하는 이진코드
+  * 한 문자의 코드워드가 다른 문자의 코드워드의 앞부분이 될 수 없다 : 해석하기 쉽게
+  * 모든 전치코드는 리프노드가 코드문자인 이진트리로 표현 가능
+
+* 허프만 알고리즘으로 최적의 전치 이진코드를 생성할 수 있다.
+  * min-heap (빈도수 기준)
+  * 빈도수가 낮은 두개로 이진트리를 하나 만든뒤, 루트값을 두 빈도수의 합으로 한다.
+  * 합한 값을 min-heap에 넣고 위 과정을 반복하면 최적의 이진트리가 생성된다.
+
+```python
+class HuffNode:
+	def __init__ (self, symbol, freq):
+		self.symbol = symbol
+		self.freq = freq
+		self.left = None
+		self.right = None
+	def preorder(self):
+		print(self.freq, end=" ")
+		if (self.left is not None):
+			self.left.preorder()
+		if (self.right is not None):
+			self.right.preorder()
+	def inorder(self):
+		if (self.left is not None):
+			self.left.inorder()
+		print(self.freq, end=" ")
+		if (self.right is not None):
+			self.right.inorder()        
+            
+def huffman (n, PQ):
+	for _ in range(n - 1):
+		p = PQ.get()[1]
+		q = PQ.get()[1]
+		r = HuffNode(' ', p.freq + q.freq)
+		r.left = p
+		r.right = q
+		PQ.put((r.freq, r))
+	return PQ.get()[1]
+            
+            
+```
+
+* PriorityQueue 세팅
+
+  ```python
+  codes = ['b','e','c','a','d','f']
+  freqs = [5, 10, 12, 16, 17, 25]
+  
+  from queue import PriorityQueue
+  
+  PQ = PriorityQueue()
+  for i in range(len(codes)):
+  node = HuffNode(codes[i], freqs[i])
+  PQ.put((node.freq, node))
+  
+  root = huffman(len(codes), PQ)
+  
+  print("Preorder:", end=" ")
+  root.preorder()
+  print("\nInorder:", end=" ")
+  root.inorder()
+  print()
+  ```
+
+  
