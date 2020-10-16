@@ -121,15 +121,14 @@
 * [안드로이드와 안드로이드 스튜디오 세팅](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Setting.md)
 * [안드로이드 스튜디오로 앱 만들기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Making.md)
 * [뷰 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/View.md)
-  
 * [위젯 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Widget.md)
-  
 * [화면전환, 액티비티](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Activity.md)
-  
 * [프래그먼트](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Activity.md)
-  
 * [브로드캐스트리시버 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/BroadcastReciver.md)
 * [선택위젯만들기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/MakeView.md)
+* [웹뷰, 시크바](https://github.com/hunman89/TIL/blob/master/multicampus/Android/OtherWidget.md)
+* [스레드](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Thread.md)
+* [네트워크 서버 연결](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Network.md)
 
 > 'Do it 안드로이드 웹 프로그래밍', 정재곤, 이지스퍼블리싱 
 
