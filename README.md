@@ -129,6 +129,7 @@
 * [웹뷰, 시크바](https://github.com/hunman89/TIL/blob/master/multicampus/Android/OtherWidget.md)
 * [스레드](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Thread.md)
 * [네트워크 서버 연결](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Network.md)
+* [서버에서 json 받기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/JSON.md)
 
 > 'Do it 안드로이드 웹 프로그래밍', 정재곤, 이지스퍼블리싱 
 
@@ -154,6 +155,8 @@
 * [알고리즘 분석과 차수](https://github.com/hunman89/TIL/blob/master/Algorithms/Order.md)
 * [알고리즘 분할정복법](https://github.com/hunman89/TIL/blob/master/Algorithms/DivideConquer.md)
 * [알고리즘 동적계획법](https://github.com/hunman89/TIL/blob/master/Algorithms/DynamicProgramming.md)
+* [탐욕 알고리즘](https://github.com/hunman89/TIL/blob/master/Algorithms/Greedy.md)
+* [되추적](https://github.com/hunman89/TIL/blob/master/Algorithms/Backtracking.md)
 
 
 
