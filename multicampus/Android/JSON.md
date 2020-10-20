@@ -110,7 +110,8 @@
           @Override
           public View getView(int position, View convertView, ViewGroup parent) {
               View itemView = null;
-              LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+              LayoutInflater inflater = (LayoutInflater) 
+                  getSystemService(Context.LAYOUT_INFLATER_SERVICE);
               itemView = inflater.inflate(R.layout.item,container,true);
               TextView tx_id = itemView.findViewById(R.id.textView);
               TextView tx_name = itemView.findViewById(R.id.textView2);
@@ -151,6 +152,6 @@
           }
       } // end Adapter
   }
-  ```
-
+```
+  
   

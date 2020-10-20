@@ -130,6 +130,8 @@
 * [스레드](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Thread.md)
 * [네트워크 서버 연결](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Network.md)
 * [서버에서 json 받기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/JSON.md)
+* [데이터 저장하기(내용제공자)](https://github.com/hunman89/TIL/blob/master/multicampus/Android/SharedPreferences.md)
+* [위치기반 서비스 구현(GPS, map)](https://github.com/hunman89/TIL/blob/master/multicampus/Android/GPS.md)
 
 > 'Do it 안드로이드 웹 프로그래밍', 정재곤, 이지스퍼블리싱 
 
