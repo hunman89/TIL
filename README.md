@@ -159,6 +159,7 @@
 * [알고리즘 동적계획법](https://github.com/hunman89/TIL/blob/master/Algorithms/DynamicProgramming.md)
 * [탐욕 알고리즘](https://github.com/hunman89/TIL/blob/master/Algorithms/Greedy.md)
 * [되추적](https://github.com/hunman89/TIL/blob/master/Algorithms/Backtracking.md)
+* [배낭문제 : 다양한 해결법 사용](https://github.com/hunman89/TIL/blob/master/Algorithms/Knapsack.md)
 
 
 
