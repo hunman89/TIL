@@ -13,7 +13,10 @@
 
 ## 분류
 
+#### Django
 
+* [장고 소개와 세팅하기](https://github.com/hunman89/TIL/blob/master/Django/Django.md)
+* [장고내부 application 소개와 만들기](https://github.com/hunman89/TIL/blob/master/Django/Apps.md)
 
 #### 자바스크립트
 
