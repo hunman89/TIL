@@ -128,16 +128,19 @@ class PersonAdapter extends BaseAdapter{
           return view;
       }
   }
+  
   ```
   
 * Adapter 를 listView에 부착
+
   
-  ```java
-  public  void setList(ArrayList<Person> persons){
-      PersonAdapter personAdapter = new PersonAdapter(persons);
-      listView.setAdapter(personAdapter);
-  }
-  ```
+      ```java
+      public  void setList(ArrayList<Person> persons){
+          PersonAdapter personAdapter = new PersonAdapter(persons);
+          listView.setAdapter(personAdapter);
+      }
+      ```
+  
   
 * 데이터는 가상으로 생성 (생략)
 
