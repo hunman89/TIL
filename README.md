@@ -16,7 +16,17 @@
 #### Django
 
 * [장고 소개와 세팅하기](https://github.com/hunman89/TIL/blob/master/Django/Django.md)
-* [장고내부 application 소개와 만들기](https://github.com/hunman89/TIL/blob/master/Django/Apps.md)
+* [장고 application 소개](https://github.com/hunman89/TIL/blob/master/Django/Apps.md)
+* [user application 상속과 필요한 model 만들기](https://github.com/hunman89/TIL/blob/master/Django/Object.md)
+* [app별 관리자 페이지 세팅하기](https://github.com/hunman89/TIL/blob/master/Django/AdminPanel.md)
+* [공통 기능을 지닌 추상app 만들어 사용하기](https://github.com/hunman89/TIL/blob/master/Django/Coreapp.md)
+* [클래스의 대표 이름 세팅](https://github.com/hunman89/TIL/blob/master/Django/str.md)
+* [모델들 연결하기/ 일대다, 다대다 연결](https://github.com/hunman89/TIL/blob/master/Django/ForeignKey.md)
+* [Metaclass 와 클래스string화 연결](https://github.com/hunman89/TIL/blob/master/Django/MetaClass.md)
+
+
+
+> 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
 #### 자바스크립트
 
@@ -126,7 +136,7 @@
 * [뷰 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/View.md)
 * [위젯 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Widget.md)
 * [화면전환, 액티비티](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Activity.md)
-* [프래그먼트](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Activity.md)
+* [프래그먼트](https://github.com/hunman89/TIL/blob/master/multicampus/Android/Fragment.md)
 * [브로드캐스트리시버 다루기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/BroadcastReciver.md)
 * [선택위젯만들기](https://github.com/hunman89/TIL/blob/master/multicampus/Android/MakeView.md)
 * [웹뷰, 시크바](https://github.com/hunman89/TIL/blob/master/multicampus/Android/OtherWidget.md)
