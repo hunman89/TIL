@@ -21,8 +21,9 @@
 * [app별 관리자 페이지 세팅하기](https://github.com/hunman89/TIL/blob/master/Django/AdminPanel.md)
 * [공통 기능을 지닌 추상app 만들어 사용하기](https://github.com/hunman89/TIL/blob/master/Django/Coreapp.md)
 * [클래스의 대표 이름 세팅](https://github.com/hunman89/TIL/blob/master/Django/str.md)
-* [모델들 연결하기/ 일대다, 다대다 연결](https://github.com/hunman89/TIL/blob/master/Django/ForeignKey.md)
+* [모델들 연결하기/ 일대다, 다대다 연결/ 연결된 데이터 가져오기](https://github.com/hunman89/TIL/blob/master/Django/ForeignKey.md)
 * [Metaclass 와 클래스string화 연결](https://github.com/hunman89/TIL/blob/master/Django/MetaClass.md)
+* [f-string](https://github.com/hunman89/TIL/blob/master/Django/Fstring.md)
 
 
 

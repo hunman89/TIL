@@ -62,3 +62,22 @@ class Room(core_models.TimeStampedModel):
 
 
 
+## 값 가져오기
+
+> 모델간 연결이 있을때, 모델의 값을 가져오는 방법은 쉽다.
+
+```python
+class Reciew(core_models.TimeStampedModel):
+
+    """ Review Model Definition """
+
+   ...
+    room = models.ForeignKey("rooms.Room", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.room.host.username
+```
+
+* 리뷰 모델과 연결된 room 과 연결된 host 의 이름 값이 \__str\__로 출력된다.
+
+  
