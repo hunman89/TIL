@@ -24,6 +24,7 @@
 * [모델들 연결하기/ 일대다, 다대다 연결/ 연결된 데이터 가져오기](https://github.com/hunman89/TIL/blob/master/Django/ForeignKey.md)
 * [Metaclass 와 클래스string화 연결](https://github.com/hunman89/TIL/blob/master/Django/MetaClass.md)
 * [f-string](https://github.com/hunman89/TIL/blob/master/Django/Fstring.md)
+* [콘솔에서 장고시스템 접속하고 데이터베이스 불러오기](https://github.com/hunman89/TIL/blob/master/Django/Console.md)
 
 
 
