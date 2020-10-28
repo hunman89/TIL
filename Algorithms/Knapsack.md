@@ -62,3 +62,114 @@ def knapsack1(W, w, p):
 
   
 
+#### 백트래킹
+
+상태공간트리의 구성 : 부분집합의 합 문제와 동일함
+
+최적해를 찾는 것이 목표
+
+어떤 아이템을 최적해 집합에 포함시켜 전체 이익을 계산 => 최적해보다 이익이 많으면 이 집합이 최적해 집합
+
+가지치기와 유망함수
+
+- 배낭에 아이템을 넣을 공간이 남아 있지 않으면 유망하지 않음
+- 현재 찾은 최적해의 이익이 현재노드에서 앞으로 얻을 수 있는 최대 이익보다 더 크면 유망x
+
+```python
+def knapsack3 (i, profit, weight):
+	global maxprofit, numbest, bestset
+	if (weight <= W and profit > maxprofit):
+		maxprofit = profit
+		numbest = i
+		bestset = include[:]
+	if (promising(i, profit, weight)):
+		include[i + 1] = True
+		knapsack3(i + 1, profit + p[i+1], weight + w[i+1])
+		include[i + 1] = False
+		knapsack3(i + 1, profit, weight)
+        
+def promising (i, profit, weight):
+	if (weight > W):
+		return False
+	else:
+		j = i + 1
+		bound = profit
+		totweight = weight
+		while (j <= n and totweight + w[j] <= W):
+			totweight += w[j]
+			bound += p[j]
+			j += 1
+		k = j
+		if (k <= n):
+			bound += (W - totweight) * p[k] / w[k]
+		return bound > maxprofit   
+```
+
+
+
+#### 분기 한정법
+
+백트래킹과 동일하게 상태 공간트리로 문제 해결
+
+백트래킹 : DFS, 분기한정법 : BFS
+
+일반적으로 DFS > BFS 이기 때문에 한계값(bound)을 사용해야 한다.
+
+우선순위 큐를 통해 bound 값 비교
+
+```python
+from queue import PriorityQueue
+class SSTNode:
+	def __init__ (self, level, profit, weight):
+		self.level = level
+		self.profit = profit
+		self.weight = weight
+		self.bound = 0
+	def print(self):
+		print(self.level, self.profit, self.weight, self.bound);
+
+def knapsack4 (p, w, W):
+	PQ = PriorityQueue()
+	v = SSTNode(0, 0, 0)
+	maxprofit = 0
+	v.bound = bound(v, p, w)
+	PQ.put((-v.bound, v))
+	while (not PQ.empty()):
+		v = PQ.get()[1] 
+    	if (v.bound > maxprofit):
+			level = v.level + 1
+			weight = v.weight + w[level]
+			profit = v.profit + p[level]
+			u = SSTNode(level, profit, weight)
+			if (u.weight <= W and u.profit > maxprofit):
+				maxprofit = u.profit
+			u.bound = bound(u, p, w)
+			if (u.bound > maxprofit):
+				PQ.put((-u.bound, u))
+			u = SSTNode(level, v.profit, v.weight)
+			u.bound = bound(u, p, w)
+			if (u.bound > maxprofit):
+				PQ.put((-u.bound, u))
+	return maxprofit
+
+def bound(u, p, w):
+	n = len(p) - 1
+	if (u.weight >= W):
+		return 0
+	else:
+		result = u.profit
+		j = u.level + 1
+		totweight = u.weight
+		while (j <= n and totweight + w[j] <= W):
+		totweight += w[j]
+		result += p[j]
+		j += 1
+	k = j
+	if (k <= n):
+		result += (W - totweight) * p[k] / w[k]
+	return result
+
+
+        
+```
+
