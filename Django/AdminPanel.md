@@ -124,7 +124,7 @@ ordering = ("name", "price", "bedrooms")
 
 함수로 model을 정의할 수 있다
 
-many_to_many 관계의 경우 유용 = 개수 표시
+many_to_many 관계의 경우 유용 ex) 개수 표시
 
 ```python
 # self : class, object : 현재 row

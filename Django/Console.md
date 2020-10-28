@@ -30,8 +30,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> vars(users)
 ```
 
-__set 이란걸 확인 할 수 있는데 이건 ForenKey 관계에 장고가 자동적으로 생성해 준 것이다.
-
 
 
 #### 데이터베이스에서 가져오기
@@ -48,15 +46,35 @@ __set 이란걸 확인 할 수 있는데 이건 ForenKey 관계에 장고가 자
 <QuerySet [<User: hunman>]>
 ```
 
-QuerySet은 object의 리스트이다.
 
-여러가지 기능이 있다.
+
+#### _set (Foreignkey)
+
+_set 이란걸 확인 할 수 있는데 이건 Foreignkey 관계 model에 장고가 자동적으로 생성해 준 것이다.
+
+AdminPanel에 표시 안 되더라도, 데이터엔 생성 되어 있다.
 
 ```python
->>> all_user = User.objects.all()
->>> all_user.filter(superhost=True)
-<QuerySet []>
->>> all_user.filter(superhost=False)
-<QuerySet [<User: hunman>]>
+>>> hunman = User.objects.get(username="hunman")
+>>> hunman
+<User: hunman>
+# 데이터를 가져올 수 있다.
+>>> hunman.review_set.all()
+<QuerySet [<Review: good~ - huni's room>]>
 ```
+
+연결 이름을 바꿀 수 있다. (related_name)
+
+```python
+# rooms/models.py
+host = models.ForeignKey("users.User", related_name="rooms" on_delete=models.CASCADE)
+```
+
+```python
+# console
+>>> hunman.rooms.all()
+<QuerySet [<Room: huni's room>]>
+```
+
+
 
