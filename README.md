@@ -27,6 +27,7 @@
 * [콘솔에서 데이터베이스 불러오기, 연결된 데이터 접속법](https://github.com/hunman89/TIL/blob/master/Django/Console.md)
 * [장고 데이터 : queryset](https://github.com/hunman89/TIL/blob/master/Django/QuerySet.md)
 * [모델함수](https://github.com/hunman89/TIL/blob/master/Django/ModelFunction.md)
+* [사진 모델 설정 하기](https://github.com/hunman89/TIL/blob/master/Django/Photo.md)
 
 
 
@@ -200,6 +201,7 @@
 * [탐욕 알고리즘](https://github.com/hunman89/TIL/blob/master/Algorithms/Greedy.md)
 * [되추적](https://github.com/hunman89/TIL/blob/master/Algorithms/Backtracking.md)
 * [배낭문제 : 다양한 해결법 사용](https://github.com/hunman89/TIL/blob/master/Algorithms/Knapsack.md)
+* [외판원문제 : 다양한 해결법 사용](https://github.com/hunman89/TIL/blob/master/Algorithms/Tsp.md)
 
 
 

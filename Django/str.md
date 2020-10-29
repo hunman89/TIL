@@ -15,3 +15,17 @@ def __str__(self):
 ```
 
  
+
+#### Join
+
+리스트 출력 시 string으로 변환하여 준다.
+
+```python
+def __str__(self):
+    usernames = []
+    for user in self.participants.all():
+        usernames.append(user.username)
+    return ", ".join(usernames)
+# 리스트 값을 ,로 구분하여 string으로 출력
+```
+
