@@ -234,3 +234,505 @@ public class Client {
 ```
 
 스레드를 사용하지 않으면, 실시간 채팅이 되지 않는다.
+
+
+
+## 채팅 앱
+
+#### 서버에 글 올리기
+
+```java
+public class Server {
+	int port;
+	ServerSocket serverSocket;
+	Socket socket;
+	 
+	public Server() {}
+	public Server(int port) {
+		this.port = port;
+	}
+	
+	// 클라이언트가 들어올때 마다 실행되는 스레드
+	class Receiver extends Thread{
+		ObjectInputStream dis;
+		Socket socket;
+		// 소켓을 받는 컨스트럭터
+		public Receiver(Socket socket) {
+			this.socket = socket;
+			try {
+				// 데이터를 받는다.
+				dis = new ObjectInputStream(socket.getInputStream());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		@Override
+		public void run() {
+			// 지속적인 입력을 받는다 
+			while(dis != null) {
+				Msg mo = null;
+				try {
+					mo = (Msg) dis.readObject();
+					if(mo.getMsg().equals("q")) {
+						System.out.println(mo.getId() + "님이 나갔습니다.");
+						break;
+					}
+					System.out.println("["+mo.getId()+"]"+mo.getMsg());
+				} catch (Exception e) {
+					if (mo.getId() != null) {
+						System.out.println(mo.getId() + "님이 나갔습니다.");
+					}					
+					break;
+				}
+			}
+			// 입력 끝, stream과 소켓 닫는다.
+			if (dis != null) {
+				try {
+					dis.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (socket != null) {
+				try {
+					dis.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}	
+	// 서버 시작
+	public void startServer() throws Exception {
+		System.out.println("TCP/IP Server Start...");
+		try {
+			// 해당 포트번호 준비
+			serverSocket = new ServerSocket(port);
+			// 항상 대기를 위해 무한루프
+			while (true) {
+				System.out.println("Ready Server ..");
+				// 클라이언트가 접속하면 소켓 생성
+				socket = serverSocket.accept();
+				System.out.println("Connected.. ");
+				// 소켓당 스레드 실행
+				new Receiver(socket).start();				
+			}
+		} catch(Exception e) {
+			throw e;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		Server server = new Server(8888);
+		try {
+			server.startServer();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+
+}
+```
+
+```java
+public class Client {
+	
+	int port;
+	String address;
+	Socket socket;
+	Sender sender;
+	
+	public Client() {}
+	public Client(String address, int port) {
+		this.address = address;
+		this.port = port;
+	}
+	
+	// 접속
+	public void connect() throws InterruptedException {
+		try {
+			socket = new Socket(address,port);
+		} catch (Exception e) {
+			// 접속 실패시 재시도
+			while(true) {
+				Thread.sleep(2000);
+				try {
+					socket = new Socket(address,port);
+					System.out.println("Connected...");
+					break;
+				} catch (Exception e1) {
+					System.out.println("Re Try ...");
+				} 
+			}
+		} 
+		// 접속이 성공하면 스레드를
+		// 입력란에서 생성하지 말고 여기서 생성해 중복 생성오류를 막는다.
+		sender = new Sender();
+	}
+	
+	// 입력
+	public void request() throws IOException {
+		Scanner sc = new Scanner(System.in);
+		try {
+			while(true) {
+				System.out.println("[Input Msg:]");
+				String msg = sc.nextLine();
+				Msg mo = new Msg("192.168.0.6","[hunman]",msg.trim());
+				// 전송할 데이터를 스레드에 넣고 실행한다.
+				sender.setMo(mo);
+				new Thread(sender).start();
+				Thread.sleep(500);
+				// 종료
+				if (msg.equals("q")) {	
+					System.out.println("Exit Client ..");
+					break;
+				}				
+			}
+		}catch(Exception e) {
+			
+		} finally {
+			sc.close();
+			if(socket != null) {
+				socket.close();
+			}
+		}
+	}
+	// 전송용 스레드
+	class Sender implements Runnable{
+		ObjectOutputStream dos;
+		Msg mo;
+		public void setMo(Msg mo) {
+			this.mo = mo;
+		}
+		public Sender() {			
+			try {
+				dos = new ObjectOutputStream(socket.getOutputStream());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public void run() {
+			if (dos != null) {
+				try {
+					dos.writeObject(mo);
+				} catch (IOException e) {
+					System.out.println("Not Avaliable ..");
+					System.exit(0);
+				} 
+			}
+			
+		}
+		
+	}
+
+
+	public static void main(String[] args) {
+		// 접속 대상 ip,port 지정
+		Client client = new Client("192.168.0.6",8888);
+		try {
+			client.connect();
+			client.request();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
+}
+```
+
+
+
+
+
+#### 다대다 채팅앱
+
+```java
+public class Server {
+
+	int port;
+	
+	// 각각client의 아웃풋 저장용
+	HashMap<String, ObjectOutputStream> maps;
+	
+	ServerSocket serverSocket;
+
+	public Server() {}
+
+	public Server(int port) {
+		this.port = port;
+		maps = new HashMap<>();
+	}
+
+	public void startServer() throws IOException  {
+		serverSocket = new ServerSocket(port);
+		System.out.println("Start Server ...");
+		
+		Runnable r = new Runnable() {
+			@Override
+			public void run() {
+				while(true) {
+					try {			
+						Socket socket = null;
+						System.out.println("Ready Server ...");
+						socket = serverSocket.accept();
+						
+						// 접속한 client의 ip address 출력
+						System.out.println(socket.getInetAddress());
+						
+						makeOut(socket);
+						// 접속한 client마다 Receiver 생성
+						new Receiver(socket).start();					
+						
+					} catch (Exception e) { 
+						// 한명이 에러가 나도 계속 whileloop가 돌게 예외fmf catch
+						e.printStackTrace();
+					}
+				}				
+			}			
+		};
+		new Thread(r).start();		
+	}
+	
+	// hashmap에 저장
+	public void makeOut(Socket socket) throws IOException {
+		ObjectOutputStream oo;
+		oo = new ObjectOutputStream(socket.getOutputStream());
+		// 형태 : (ip 주소, ouputstream)
+		maps.put(socket.getInetAddress().toString(), oo);
+		System.out.println("접속자수: " + maps.size());
+	}
+	
+	// 데이터 받는 스레드
+	class Receiver extends Thread{
+		Socket socket;
+		ObjectInputStream oi;
+		
+		public Receiver(Socket socket) throws IOException {
+			this.socket = socket;
+			// socket을 이용해 oi 생성
+			oi = new ObjectInputStream(socket.getInputStream());
+		}
+
+		@Override
+		public void run() {
+			while(oi != null) {
+				Msg msg = null;
+				try {
+					msg = (Msg) oi.readObject();
+					if(msg.getMsg().contentEquals("q")) {
+						throw new Exception();
+					}
+					System.out.println(msg.getId()+msg.getMsg());
+					// 메시지를 모든 클라이언트에게 전송
+					sendMsg(msg);
+				} catch (Exception e) {
+					maps.remove(socket.getInetAddress().toString());
+					System.out.println(socket.getInetAddress()+" Exited ..");
+					System.out.println("접속자수: "+maps.size());
+					break;
+				} 
+			}
+			try {
+				if(oi != null) {
+					oi.close();
+				}
+				if(socket != null) {
+					socket.close();
+				}
+			} catch (Exception e) {
+				
+			} finally {
+				
+			}
+			
+		}
+		
+	}
+	
+	// sender 스레드에 전송
+	public void sendMsg(Msg msg) {
+		Sender sender = new Sender();
+		sender.setMsg(msg);
+		sender.start();
+	}
+	
+	// client에 데이터 전송 스레드
+	class Sender extends Thread{
+		Msg msg;
+		public void setMsg(Msg msg) {
+			this.msg = msg;
+		}
+		@Override
+		public void run() {
+			// 모든 client 상대 전송
+			Collection<ObjectOutputStream> cols = maps.values();
+			Iterator<ObjectOutputStream> it = cols.iterator();
+			while(it.hasNext()) {
+				try {
+					it.next().writeObject(msg);
+				} catch (IOException e) {					
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Server server = new Server(5555);
+		try {
+			server.startServer();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+```
+
+```java
+public class Client {
+	
+	int port;
+	String address;
+	String id;
+	Socket socket;
+	Sender sender;
+	
+	public Client() {}
+	public Client(String address, int port, String id) {
+		this.address = address;
+		this.id = id;
+		this.port = port;
+	}
+	
+	// 접속용 소켓 생성
+	public void connect() throws IOException {
+		try {
+			socket = new Socket(address, port);
+		} catch (Exception e) {
+			// 재시도 무한루프
+			while(true) {
+				try {
+					Thread.sleep(2000);
+					socket = new Socket(address, port);
+					break;
+				} catch (Exception e1) {
+					System.out.println("Re try ...");
+				} 
+			}
+		}
+		// 정상 소켓  생성
+		System.out.println("Connected Server: "+address);
+		sender = new Sender(socket);
+		new Receiver(socket).start();
+	}
+	
+	// 입력된 메시지 전송
+	public void sendMsg() {
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			System.out.println("[Input msg :]");
+			String ms = sc.nextLine();
+			Msg msg = new Msg("",id,ms);
+			sender.setMsg(msg);
+			new Thread(sender).start();
+			if(ms.equals("q")) {
+				break;
+			}
+		}
+		sc.close();
+		if(socket != null) {
+			try {
+				socket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("Bye ...");
+	}
+	
+	// 서버에 메시지 전송 스레드
+	class Sender implements Runnable{
+		Socket socket;
+		ObjectOutputStream oo;
+		Msg msg;
+		public Sender(Socket socket) throws IOException {
+			this.socket = socket;
+			oo = new ObjectOutputStream(socket.getOutputStream());
+		}
+		public void setMsg(Msg msg) {
+			this.msg = msg;
+		}
+		@Override
+		public void run() {
+			if(oo != null) {
+				try {
+					oo.writeObject(msg);
+				} catch (IOException e) {
+					//e.printStackTrace();
+					try {						
+						if(socket != null) {
+							socket.close();
+						}						
+					} catch (Exception e1){
+						e1.printStackTrace();
+					}
+					// 서버가 끊어지면 다시 연결한다.
+					try {
+						Thread.sleep(2000);
+						connect();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+	
+	// 서버에서 오는 메시지 수신 스레드
+	class Receiver extends Thread{
+		ObjectInputStream oi;
+		public Receiver(Socket socket) throws IOException {
+			oi = new ObjectInputStream(socket.getInputStream());
+		}
+		@Override
+		public void run() {
+			while(oi != null) {
+				Msg msg = null;
+				try {
+					msg = (Msg) oi.readObject();
+					System.out.println(msg.getId() + msg.getMsg());
+				} catch (Exception e) {
+					e.printStackTrace();
+					break;
+				} 
+			}
+			try {
+				if(oi != null) {
+					oi.close();
+				}
+				if(socket != null) {
+					socket.close();
+				}
+			}catch(Exception e) {
+				
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		Client client = new Client("192.168.0.94", 5555,"[hun]");
+		try {
+			client.connect();
+			client.sendMsg();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
