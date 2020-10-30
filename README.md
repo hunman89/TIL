@@ -91,7 +91,7 @@
 
 네트워크
 
-* [네크워크와 URL, 소켓프로그래밍(tcp/ip)와 콘솔로 채팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/Java/Networking.md)
+* [네크워크와 콘솔로 채팅하기, 안드로이드와 채팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/Java/Networking.md)
 
 
 

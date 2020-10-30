@@ -736,3 +736,304 @@ public class Client {
 }
 ```
 
+
+
+#### 특정 대상들에게 귓말하기
+
+msg 객체의  ip를 배열(ips)로 변경 
+
+server.java
+
+```java
+// 데이터 받는 스레드
+class Receiver extends Thread {
+    Socket socket;
+    ObjectInputStream oi;
+
+    public Receiver(Socket socket) throws IOException {
+        this.socket = socket;
+        // socket을 이용해 oi 생성
+        oi = new ObjectInputStream(socket.getInputStream());
+    }
+
+    @Override
+    public void run() {
+        while (oi != null) {
+            Msg msg = null;
+            try {
+                msg = (Msg) oi.readObject();
+                // q이면 종료
+                if (msg.getMsg().equals("q")) {
+                    throw new Exception();
+                } else if (msg.getMsg().equals("1")) {
+                    String ip = socket.getInetAddress().toString();
+                    ArrayList<String> ips = new ArrayList<>();
+                    ips.add(ip);
+                    msg.setIps(ips);
+
+                    Set<String> keys = maps.keySet();
+                    HashMap<String, Msg> hm = new HashMap<>();
+                    for(String k: keys) {
+                        hm.put(k,null);
+                    }
+                    // 1을 보낸 client
+                    // 서버의 접속자 ip들
+                    msg.setMaps(hm);
+
+                }
+                System.out.println(msg.getId() + msg.getMsg());
+                // 메시지를 모든 클라이언트에게 전송
+                sendMsg(msg);
+            } catch (Exception e) {
+                maps.remove(socket.getInetAddress().toString());
+                System.out.println(socket.getInetAddress() + " Exited ..");
+                System.out.println("접속자수: " + maps.size());
+                break;
+            }
+        }
+        try {
+            if (oi != null) {
+                oi.close();
+            }
+            if (socket != null) {
+                socket.close();
+            }
+        } catch (Exception e) {
+
+        } finally {
+        }
+    }
+}
+```
+
+client.java
+
+```java
+// 입력된 메시지 전송
+public void sendMsg() {
+    Scanner sc = new Scanner(System.in);
+    while(true) {
+        System.out.println("[Input msg :]");
+        String ms = sc.nextLine();
+        Msg msg = null;
+        // 1을 보내면 서버에서는 사용자 리스트를 보낸다.
+        if(ms.equals("1")) {
+            msg = new Msg (id,ms);
+        } else {				
+            ArrayList<String> ips = new ArrayList<>();
+            ips.add("/192.168.0.6");
+            msg = new Msg(null,id,ms);
+        }			
+        sender.setMsg(msg);
+        new Thread(sender).start();
+        if(ms.equals("q")) {
+            break;
+        }
+    }
+    sc.close();
+    if(socket != null) {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    System.out.println("Bye ...");
+}
+```
+
+안드로이드 MainActivity
+
+```java
+public class MainActivity extends AppCompatActivity {
+    TextView tx_list,tx_msg;
+    EditText et_ip, et_msg;
+
+    int port;
+    String address;
+    String id;
+    Socket socket;
+
+    Sender sender;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        tx_list = findViewById(R.id.tx_list);
+        tx_msg = findViewById(R.id.tx_msg);
+        et_ip = findViewById(R.id.et_ip);
+        et_msg = findViewById(R.id.et_msg);
+        port = 5555;
+        address = "192.168.0.6";
+        id = "[kyung]";
+        new Thread(con).start();
+    }
+
+    // 뒤로가기 눌렀을때
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        try{
+            Msg msg = new Msg(null,id,"q");
+            sender.setMsg(msg);
+            new Thread(sender).start();
+            if(socket != null){
+                socket.close();
+            }
+            finish();
+            onDestroy();
+        }catch (Exception e){
+
+        }
+    }
+
+    private void connect() throws IOException {
+        try {
+            socket = new Socket(address, port);
+        } catch (Exception e) {
+            // 재시도 무한루프
+            while(true) {
+                try {
+                    Thread.sleep(2000);
+                    socket = new Socket(address, port);
+                    break;
+                } catch (Exception e1) {
+                    System.out.println("Re try ...");
+                }
+            }
+        }
+        // 정상 소켓  생성
+        System.out.println("Connected Server: "+address);
+        sender = new Sender(socket);
+        new Receiver(socket).start();
+        getList();
+    }
+
+    private void getList() {
+        Msg msg = new Msg(null,"[kyung]","1");
+        sender.setMsg(msg);
+        new Thread(sender).start();
+    }
+
+    public void clickBt(View v) {
+        String txip = et_ip.getText().toString();
+        String txmsg = et_msg.getText().toString();
+        et_msg.setText(null);
+        Msg msg = null;
+        if(txip == null || txip.equals("")){
+            msg = new Msg(id,txmsg);
+        } else {
+            ArrayList<String> ips = new ArrayList<>();
+            ips.add(txip);
+            msg = new Msg(id,txmsg);
+        }
+        sender.setMsg(msg);
+        new Thread(sender).start();
+    }
+
+    Runnable con = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                connect();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    // 서버에서 오는 메시지 수신 스레드
+    class Receiver extends Thread{
+        ObjectInputStream oi;
+        public Receiver(Socket socket) throws IOException {
+            oi = new ObjectInputStream(socket.getInputStream());
+        }
+        @Override
+        public void run() {
+            while(oi != null) {
+                Msg msg = null;
+                try {
+                    msg = (Msg) oi.readObject();
+                    if(msg.getMaps() != null) {
+                        HashMap<String,Msg> hm = msg.getMaps();
+                        Set<String> keys = hm.keySet();
+                        for (final String k : keys) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    String tx = tx_list.getText().toString();
+                                    tx_list.setText(tx + k + "\n");
+                                }
+                            });
+                            System.out.println(k);
+                        }
+                        continue;
+                    }
+                    final Msg finalMsg = msg;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String tx = tx_msg.getText().toString();
+                            tx_msg.setText(finalMsg.getId() + finalMsg.getMsg()+"\n" + tx);
+                        }
+                    });
+                    System.out.println(msg.getId() + msg.getMsg());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+            try {
+                if(oi != null) {
+                    oi.close();
+                }
+                if(socket != null) {
+                    socket.close();
+                }
+            }catch(Exception e) {
+
+            }
+        }
+    }
+
+    // 서버에 메시지 전송 스레드
+    class Sender implements Runnable{
+        Socket socket;
+        ObjectOutputStream oo;
+        Msg msg;
+        public Sender(Socket socket) throws IOException {
+            this.socket = socket;
+            oo = new ObjectOutputStream(socket.getOutputStream());
+        }
+        public void setMsg(Msg msg) {
+            this.msg = msg;
+        }
+        @Override
+        public void run() {
+            if(oo != null) {
+                try {
+                    oo.writeObject(msg);
+                } catch (IOException e) {
+                    //e.printStackTrace();
+                    try {
+                        if(socket != null) {
+                            socket.close();
+                        }
+                    } catch (Exception e1){
+                        e1.printStackTrace();
+                    }
+                    // 서버가 끊어지면 다시 연결한다.
+                    try {
+                        Thread.sleep(2000);
+                        connect();
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
