@@ -28,8 +28,9 @@
 * [장고 데이터 : queryset](https://github.com/hunman89/TIL/blob/master/Django/QuerySet.md)
 * [모델함수](https://github.com/hunman89/TIL/blob/master/Django/ModelFunction.md)
 * [사진 모델 설정 하기](https://github.com/hunman89/TIL/blob/master/Django/Photo.md)
-
-
+* [Admin page 연결하기](https://github.com/hunman89/TIL/blob/master/Django/ConnectAdmin.md)
+* [모델 저장 방식 intercept](https://github.com/hunman89/TIL/blob/master/Django/ModelSave.md)
+* [manage.py 명령어 생성하기](https://github.com/hunman89/TIL/blob/master/Django/Commands.md)
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
