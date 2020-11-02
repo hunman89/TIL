@@ -2,7 +2,7 @@
 
 > manage.py 의 명령어를 직접 custom 할 수 있다.
 
-명령어를 만들고 Django seed를 통해 샘플을 자동으로 생성한다.
+명령어를 만들고 Django seed를 통해 샘플을 자동으로 생성할 수 있다.
 
 먼저 app에 management 폴더를 만들고 \__init__.py 를 생성한다.
 
@@ -26,4 +26,10 @@ class Command(BaseCommand):
         for t in range(0, int(times)):
             self.stdout.write(self.style.ERROR("I love you"))
 ```
+
+self.style 은 터미널창의 글자 색을 조절할 수 있다!!!
+
+
+
+
 

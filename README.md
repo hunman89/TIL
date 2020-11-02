@@ -31,6 +31,7 @@
 * [Admin page 연결하기](https://github.com/hunman89/TIL/blob/master/Django/ConnectAdmin.md)
 * [모델 저장 방식 intercept](https://github.com/hunman89/TIL/blob/master/Django/ModelSave.md)
 * [manage.py 명령어 생성하기](https://github.com/hunman89/TIL/blob/master/Django/Commands.md)
+* [DB 가짜 데이터 생성하기 = Django seed](https://github.com/hunman89/TIL/blob/master/Django/DATA.md)
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
@@ -93,6 +94,7 @@
 네트워크
 
 * [네크워크와 콘솔로 채팅하기, 안드로이드와 채팅하기](https://github.com/hunman89/TIL/blob/master/multicampus/Java/Networking.md)
+* [Spring 서버와 iot 장비 연결하기](https://github.com/hunman89/TIL/blob/master/multicampus/Java/Networking2.md)
 
 
 
