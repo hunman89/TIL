@@ -32,6 +32,9 @@
 * [모델 저장 방식 intercept](https://github.com/hunman89/TIL/blob/master/Django/ModelSave.md)
 * [manage.py 명령어 생성하기](https://github.com/hunman89/TIL/blob/master/Django/Commands.md)
 * [DB 가짜 데이터 생성하기 = Django seed](https://github.com/hunman89/TIL/blob/master/Django/DATA.md)
+* [Url과 view](https://github.com/hunman89/TIL/blob/master/Django/View.md)
+* [화면 골격 형상하는 html templates](https://github.com/hunman89/TIL/blob/master/Django/Templates.md)
+* 
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
