@@ -33,7 +33,8 @@
 * [manage.py 명령어 생성하기](https://github.com/hunman89/TIL/blob/master/Django/Commands.md)
 * [DB 가짜 데이터 생성하기 = Django seed](https://github.com/hunman89/TIL/blob/master/Django/DATA.md)
 * [Url과 view](https://github.com/hunman89/TIL/blob/master/Django/View.md)
-* [화면 골격 형상하는 html templates](https://github.com/hunman89/TIL/blob/master/Django/Templates.md)
+* [화면 골격 형상하는 html templates](https://github.com/hunman89/TIL/blob/master/Django/Templates.md), [template 내부의 작은 함수 filter](https://github.com/hunman89/TIL/blob/master/Django/Templatefilter.md)
+* [장고 view 페이지 만들기 1)Paginator](https://github.com/hunman89/TIL/blob/master/Django/Paginator.md), [2)Class Based View](https://github.com/hunman89/TIL/blob/master/Django/ClassBasedView.md)
 * 
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
