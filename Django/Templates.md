@@ -124,3 +124,41 @@ home.html
 
 
 
+#### {% url %}
+
+경로를 하드코딩하기 보다, urls.py에 지정한 이름으로 연결할 수 있다.
+
+일일이 다 외울 필요가 없다.
+
+```html
+<header>
+    <!-- root -->
+    <a href="{% url "core:home" %}">Nbnb</a>
+    <ul>
+        <li><a href="#">Login</a></li>
+    </ul>
+</header>
+```
+
+```html
+<h3>
+    <!-- /rooms/각각 room의 pk -->
+    <a href="{% url "rooms:detail" room.pk %}">
+        {{room.name}}/${{room.price}}
+    </a>
+</h3>
+```
+
+> adminpanel에서 view 를 바로 볼 수 있는 기능이 있다.
+>
+> models.py 에 추가
+
+``` python
+def get_absolute_url(self):
+    from django.urls import reverse
+
+    return reverse("rooms:detail", kwargs={"pk": self.pk})
+```
+
+
+

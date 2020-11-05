@@ -25,3 +25,38 @@ Page {{page}} of {{page_count}}
 </h5>
 ```
 
+
+
+#### slugify
+
+text로 변환해준다.
+
+```html
+{% for amenity in amenities %}
+<li>
+    <label for="a_{{amenity.pk}}">{{amenity.name}}</label>
+    <input 
+           id="a_{{amenity.pk}}"
+           name="amenities" 
+           type="checkbox" 
+           value="{{amenity.pk}}" 
+           {% if amenity.pk in s_amenities %} checked {% endif %}
+       />
+</li>
+{% endfor %}
+```
+
+amenity.pk 는 int , s_amenities는 text 배열
+
+```html
+<input 
+       id="a_{{amenity.pk}}"
+       name="amenities" 
+       type="checkbox" 
+       value="{{amenity.pk}}" 
+       {% if amenity.pk|slugify in s_amenities %} checked {% endif %}
+       />
+```
+
+작동한다.
+
