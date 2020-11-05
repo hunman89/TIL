@@ -43,3 +43,5 @@ public class SerialTest {
 
 연결되는지 확인한다.
 
+
+
