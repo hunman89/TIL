@@ -36,6 +36,9 @@
 * [화면 골격 형상하는 html templates](https://github.com/hunman89/TIL/blob/master/Django/Templates.md), [template 내부의 작은 함수 filter](https://github.com/hunman89/TIL/blob/master/Django/Templatefilter.md)
 * [장고 view 페이지 만들기 1)Paginator](https://github.com/hunman89/TIL/blob/master/Django/Paginator.md), [2)Class Based View](https://github.com/hunman89/TIL/blob/master/Django/ClassBasedView.md)
 * [HTML 대신 Django Form API](https://github.com/hunman89/TIL/blob/master/Django/Form.md)
+* [로그인 기능 만들기](https://github.com/hunman89/TIL/blob/master/Django/Vaild.md), [보안 : CSRF?](https://github.com/hunman89/TIL/blob/master/Django/CSRF.md)
+* [Sign Up 기능 만들기와 ModelForm](https://github.com/hunman89/TIL/blob/master/Django/SignUp.md)
+* 
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
