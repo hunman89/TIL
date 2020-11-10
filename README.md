@@ -185,6 +185,12 @@
 
 
 
+#### 아두이노
+
+* [아두이노 세팅 및 시리얼 모니터 활용](https://github.com/hunman89/TIL/blob/master/multicampus/Aduino/Aduino.md)
+
+
+
 #### Git 
 
 * [git 사전 준비](https://github.com/hunman89/TIL/blob/master/git/git.md)
