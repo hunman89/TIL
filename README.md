@@ -38,7 +38,9 @@
 * [HTML 대신 Django Form API](https://github.com/hunman89/TIL/blob/master/Django/Form.md)
 * [로그인 기능 만들기](https://github.com/hunman89/TIL/blob/master/Django/Vaild.md), [보안 : CSRF?](https://github.com/hunman89/TIL/blob/master/Django/CSRF.md)
 * [Sign Up 기능 만들기와 ModelForm](https://github.com/hunman89/TIL/blob/master/Django/SignUp.md)
-* 
+* [이메일 인증하기](https://github.com/hunman89/TIL/blob/master/Django/Verify.md)
+
+
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
