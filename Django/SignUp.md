@@ -75,3 +75,23 @@ class SignUpForm(forms.ModelForm):
         user.save()
 ```
 
+
+
+#### User Creation Form
+
+> 비밀번호 확인, 유효성 체크가 내장되어있다
+
+```python
+from django import forms
+from django.contrib.auth.forms import UserCreationForm # 추가
+from . import models
+
+class SignUpForm(UserCreationForm):
+    # 이메일 = username 만 추가
+	username = forms.EmailField(label="Email")
+
+```
+
+짧아진다.
+
+유효성만 사용할 경우 password_validation만 불러와 사용해도 된다.
