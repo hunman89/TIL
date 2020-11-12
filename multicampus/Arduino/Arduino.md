@@ -60,3 +60,50 @@ void loop() {
 }
 ```
 
+
+
+#### 센서 연결
+
+> 라떼판다는 전부 모듈화가 되어있어 간편하게 연결이 가능하다.
+
+
+
+#### LED
+
+```c++
+const int ledPin = A2;
+
+void setup(){
+    Serial.begin(9600);
+    pinMode(ledPin,OUTPUT);
+}
+
+void loop(){
+    delay(2000);
+    digitalWrite(ledPin,HIGH);
+    delay(2000);
+    digitalWrite(ledPin,LOW);    
+}
+```
+
+
+
+#### TEMP
+
+```c++
+const int tempPin = A0;
+
+void setup(){
+    ananlogReference(INTERNAL)
+}
+
+void loop(){
+    delay(2000);
+    int data = analogRead(tempPin);
+    float temp = ((5.0*data*100.0)/1024.0); // 변환공식 (맞는지 모름)
+    Serial.println(data);
+}
+```
+
+
+
