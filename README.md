@@ -41,7 +41,9 @@
 * [이메일 인증하기](https://github.com/hunman89/TIL/blob/master/Django/Verify.md)
 * [외부 로그인(API), 깃허브와 카카오](https://github.com/hunman89/TIL/blob/master/Django/OAuth.md)
 
+#### TailwindCSS in Django
 
+* [TailwindCSS 세팅](https://github.com/hunman89/TIL/blob/master/Django/CSS/TailwindCSS.md)
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
@@ -197,7 +199,7 @@
 
 #### 아두이노
 
-* [아두이노 세팅 및 시리얼 모니터 활용](https://github.com/hunman89/TIL/blob/master/multicampus/Arduino/Arduino.md)
+* [아두이노 세팅 및 시리얼 모니터 활용 및 센서연결](https://github.com/hunman89/TIL/blob/master/multicampus/Arduino/Arduino.md)
 
 
 
