@@ -44,6 +44,7 @@
 #### TailwindCSS in Django
 
 * [TailwindCSS 세팅](https://github.com/hunman89/TIL/blob/master/Django/CSS/TailwindCSS.md)
+* [TailwindCSS 용어,](https://github.com/hunman89/TIL/blob/master/Django/CSS/Word.md)[반복을 줄이는 Apply 방법](https://github.com/hunman89/TIL/blob/master/Django/CSS/Apply.md)
 
 > 노마드 코더 [에어비엔비 클론코딩](https://nomadcoders.co/airbnb-clone/lobby)
 
