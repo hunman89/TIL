@@ -61,7 +61,7 @@
 
 * [CSS의 속성들](https://github.com/hunman89/TIL/blob/master/WebUI/Property.md)
 
-* 
+* [글 관련 속성들](https://github.com/hunman89/TIL/blob/master/WebUI/Typography.md)
 
   
 
