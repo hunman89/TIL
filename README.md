@@ -54,18 +54,12 @@
 #### HTML & CSS
 
 * [웹과 HTML](https://github.com/hunman89/TIL/blob/master/WebUI/HTML.md)
-
 * [TAG](https://github.com/hunman89/TIL/blob/master/WebUI/TAG.md), [요소의 구분](https://github.com/hunman89/TIL/blob/master/WebUI/ContentsModel.md)
-
 * [CSS의 기초와 선택자](https://github.com/hunman89/TIL/blob/master/WebUI/CSS.md)
-
 * [CSS의 속성들](https://github.com/hunman89/TIL/blob/master/WebUI/Property.md)
-
 * [글 관련 속성들](https://github.com/hunman89/TIL/blob/master/WebUI/Typography.md)
-
-  
-
-
+* [디스플레이 속성들](https://github.com/hunman89/TIL/blob/master/WebUI/Display.md)
+* [미디어쿼리](https://github.com/hunman89/TIL/blob/master/WebUI/MediaQ)
 
 > edwith [부스트코스] [웹 UI 개발](https://www.edwith.org/boostcourse-ui/joinLectures/19142)
 
