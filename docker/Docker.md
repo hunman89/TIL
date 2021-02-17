@@ -89,3 +89,23 @@ $ docker rm $(docker ps -a -q)
 $ docker rm -f mycentos			# 한방에 멈추고 삭제 가능
 ```
 
+
+
+#### 호스트와 연결
+
+```sh
+$ docker run -i -t --name mywebserver -p 80:80 ubuntu:14.04
+```
+
+* `-p` 를 이용해 호스트의 port와 연결해준다.
+* 192.168.0.100:7777:80 과 같이도 가능
+
+내부에 apachwebserver를 설치한뒤 실행하고
+
+```shell
+root@67429534e65a:/# apt-get update
+root@67429534e65a:/# apt-get install apache2 -y
+root@67429534e65a:/# service apache2 start
+```
+
+호스트의 ip와 해당 port로 접속하면 된다.
