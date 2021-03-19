@@ -44,6 +44,8 @@ RUN ["/bin/bash", "-c", "echo hello"]
 
 * `\`를 통해 줄바꿈을 가능하게 하여 가독성을 높일 수 있다.
 * 캐시가 자동으로 사라지지 않기 때문에 다음 build에 사용된다.
+* --no-cache를 이용해 캐시 사용을 방지 할 수 있다.
 
+> `apt install`같은 경우 입력을 받게 되는데 docker build 과정에서 오류가 발생한다. 이것들을 막아야 한다. `apt install -y`
 
 
