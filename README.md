@@ -21,7 +21,8 @@
 * [도커 볼륨](https://github.com/hunman89/TIL/blob/master/docker/Volume.md)
 * [도커파일 - 기본](https://github.com/hunman89/TIL/blob/master/docker/dockerfile1.md)
 * [도커파일 - FROM, RUN](https://github.com/hunman89/TIL/blob/master/docker/dockerfile2.md)
-* [도커파일 - CMD, ENTRYPOINT](https://github.com/hunman89/TIL/blob/master/docker/dockerfile2.md)
+* [도커파일 - CMD, ENTRYPOINT](https://github.com/hunman89/TIL/blob/master/docker/dockerfile3.md)
+* [도커파일 - LABEL, EXPOSE](https://github.com/hunman89/TIL/blob/master/docker/dockerfile4.md)
 
 #### Django
 
